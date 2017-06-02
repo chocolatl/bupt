@@ -1,0 +1,318 @@
+@navbar-height: 102px;
+@navbar-menu-height: @navbar-height;
+@navbar-menu-col-item-num: 4;  // 主菜单的二级菜单有左右两列，这里是一列的项目数
+@navbar-item-width: 102px;
+@navbar-item-transition-time: 410ms;    // 单位只能为毫秒
+@navbar-item-menu-transition-time: 260ms;   // 单位只能为毫秒
+@transition-timing-function: cubic-bezier(0.54, 0.28, 0.54, 0.91);
+
+@navbar-aside-height:34px;
+@search-height: 27px;
+@search-input-width: 160px;
+@search-button-width: @search-height;
+@search-icon: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfcBxoWKjECsg7PAAACyklEQVQ4y4WTW2hTWRSGv3NyYm06bdNOKrZjvARqFYWqVMWqiKDgOBEGFaEgMorIwDwEn3xQRGcEnwWNKIqo4IN4odGHKCleqpNWM9WmXko7tGlTiW09ubROLvV4lg/WW+zoelz7+zbrX+wNE5SdXtqJk0MweU0M4dH4mfY1vpXzDFKr9M4yFkqV5MxueWwmyhhg2sS3C2kiU/87nO3R9f7BAT2ZzN5PbQ5ZBugDLPlChiTRmVWnc+tDwc6unMT0SwG1pnJrudHTWigN+YJKDfeKlh15uyh0onr27FWa7YdnzXv3B6e7qhvsnWWdrq9HElo2JvTQwZd3BnpO7V65tGrqfoRpK5qe6He6Sv7Nx6eD9enZ2D/ho0OxKz/DLuZiA5h04M9ovH95FPVLwUW9XZ2TihXWZ/0bb6zmJM9JA+Gx/uBrEZeav1YDoyBX8KbY9qM1pJtRFoz3W7El3xqGpuQLXSTG9JTd3nim5qbCbx/7vyIO1ZoZNPKFIRhpf+xuWNy0phuKWQuc4TkVluZ18mq4Q/syw2JAsn3BdNGMPe1TOijCT4Bq/uK2u2RL6sLq6DmUz/EHhBl2Oo4X/AKmf+xQpm1Z5qLidFg3WfaNhlt2uF5WfhKW0Mojhp0V3kluwZRU2pbRwhKRQpmXmzF0o3nfwe4ilA9CHQ8J8crp8FrdgjDsO3a1evmc2pJSyY109V67fP1v3YGVNx9wIch1Z8u1kITkgfgbPTMFipnlmFfqokRY93Fw7f3s94k7y72K20CI+/yePyIKjBaOTkYj/XlQlDoecpe4s9yrucEk4bvp+T0yHxVzotePYnKLpLPMq7kFIeELeHZFav8XB8tSkj/ZvZYNJiZxX5NnZ2ThN3BQ12NsVzYYGOi+gGdHZNE3cVCxPrNnMdAbmzzbI3XfwcGC+SIlxmig7dC2vvrv4uPBKaagGfI/x4T1DhRGNOXmc4EzAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE2LTA5LTE3VDE1OjE4OjA1KzA4OjAwaWFhvQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMi0wNy0yNlQyMjo0Mjo0OSswODowMAmf7QQAAABNdEVYdHNvZnR3YXJlAEltYWdlTWFnaWNrIDcuMC4xLTYgUTE2IHg4Nl82NCAyMDE2LTA5LTE3IGh0dHA6Ly93d3cuaW1hZ2VtYWdpY2sub3Jn3dmlTgAAABh0RVh0VGh1bWI6OkRvY3VtZW50OjpQYWdlcwAxp/+7LwAAABh0RVh0VGh1bWI6OkltYWdlOjpIZWlnaHQAMjU26cNEGQAAABd0RVh0VGh1bWI6OkltYWdlOjpXaWR0aAAyNTZ6MhREAAAAGXRFWHRUaHVtYjo6TWltZXR5cGUAaW1hZ2UvcG5nP7JWTgAAABd0RVh0VGh1bWI6Ok1UaW1lADEzNDMzMTM3Njl+stMcAAAAEnRFWHRUaHVtYjo6U2l6ZQAyMy40S0J2E/IKAAAAX3RFWHRUaHVtYjo6VVJJAGZpbGU6Ly8vaG9tZS93d3dyb290L3NpdGUvd3d3LmVhc3lpY29uLm5ldC9jZG4taW1nLmVhc3lpY29uLmNuL3NyYy8xMDc3NC8xMDc3NDM4LnBuZ5k4f24AAAAASUVORK5CYII=);
+@search-bg: rgba(0, 160, 240, 0.2);
+@search-border: 1px solid #eee;
+
+@navbar-bg: rgba(57, 57, 57, 0.45);
+@navbar-item-hover-bg: rgba(0, 57, 127, 0.2);
+
+@border-line: 1px solid rgba(155, 186, 200, 0.31);
+
+@font-color: white;
+@link-hover-color: #acc;
+
+@nav-right-padding: 12px;
+
+.reset-list {
+    margin: 0;
+    padding: 0;
+
+    > li {
+        list-style: none;
+    }
+}
+
+.set-placeholder(@color) {
+    &::-webkit-input-placeholder {
+        color: @color;
+    }
+    &:-ms-input-placeholder { // IE10+
+        color: @color;
+    }
+    &:-moz-placeholder { // Firefox4-18
+        color: @color;
+    }
+    &::-moz-placeholder { // Firefox19+
+        color: @color;
+    }
+}
+
+// Edge hack
+.edge-only(@rules) {
+    @supports (-ms-ime-align:auto) {
+        @rules();
+    }
+}
+
+// 多栏布局中最后一栏宽度自适应：http://www.zhangxinxu.com/wordpress/2015/02/css-deep-understand-flow-bfc-column-two-auto-layout/
+.response-width {
+    // width: 9999px;
+    // display: table-cell;
+    overflow: hidden;
+}
+
+.navbar {
+    position: absolute;
+    &.fixed {
+        position: fixed;
+    }
+    top: 0;
+    left: 0;
+    z-index: 1200;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    ul {
+        .reset-list;
+    }
+
+    width: 100%;
+    color: @font-color;
+
+    a:link,
+    a:visited {
+        color: @font-color;
+        text-decoration: none;
+    }
+}
+
+// 左侧导航条
+.navbar-main {
+    height: @navbar-height;
+    font-size: 18px;
+    float: left;
+}
+
+.navbar-main > li {
+    background: @navbar-bg;
+    height: @navbar-height;
+    float: left;
+
+    &.logo img {
+        height: @navbar-height;
+        border: none;   // IE
+    }
+
+    &:not(.logo) {
+        width: @navbar-item-width;
+        border-right: @border-line;
+
+        // active
+        &.active {
+            background: @navbar-item-hover-bg;
+        }
+
+        > .def {
+            height: @navbar-height;
+            line-height: @navbar-height;
+            width: @navbar-item-width;
+            text-align: center;
+
+            > a {
+                display: block;
+            }
+        }
+
+        > .menu {
+            height: @navbar-menu-height;
+            width: @navbar-item-width * 2;
+            overflow: hidden;
+            background: @navbar-bg;
+
+            > li {
+                height: @navbar-menu-height / @navbar-menu-col-item-num;
+                line-height: @navbar-menu-height / @navbar-menu-col-item-num;
+                width: @navbar-item-width;
+                padding-left: 1em;
+                font-size: 13px;
+
+                // 右侧菜单项
+                &:nth-child(@{navbar-menu-col-item-num}) ~ li {
+                    width: @navbar-item-width;
+                    position: relative;
+                    left: @navbar-item-width;
+                    top: -@navbar-item-width;
+                }
+
+                > a:hover {
+                    color: @link-hover-color;
+                }
+            }
+        }
+    }
+}
+
+// 菜单过渡动画
+.navbar-main > li:not(.logo) {
+    transition: width @navbar-item-transition-time @transition-timing-function;
+    
+    &:hover {
+        width: @navbar-item-width * 2;
+        perspective: @navbar-height * 5;
+        background: @navbar-item-hover-bg;
+
+        > .def > a:hover {
+            width: @navbar-item-width * 2;
+            padding-right: @navbar-item-width;
+        }
+
+        > ul.menu {
+            // 用transition设定延时在Edge下有BUG
+            // transform: none;
+            // transition: all @navbar-item-menu-transition-time @transition-timing-function @navbar-item-transition-time;
+            // opacity: 1;
+            animation: menu-rotate-animation (@navbar-item-menu-transition-time + @navbar-item-transition-time) @transition-timing-function;
+            display: block;
+        }
+    }
+
+    > ul.menu {
+        // transform: rotate3d(1,0,0,90deg);
+        // opacity: 0;
+        transform-style: preserve-3d;
+        transform-origin: center top;
+        display: none;
+    }
+}
+
+// 右侧导航条
+.navbar-aside {
+    .response-width;
+    height: @navbar-height;
+    background: @navbar-bg;
+
+    //右侧菜单
+    > .aside-nav-wrap {
+        height: @navbar-aside-height;
+        font-size: 12.5px;
+        word-spacing: 4px;
+        > ul {
+            float: right;
+        }
+
+        li {
+            float: left;
+            border-right: @border-line;
+            line-height: @navbar-aside-height;
+            padding: 0 5px;
+
+            &:first-child {
+                border-left: @border-line;
+            }
+        }
+
+        border-bottom: @border-line;
+        padding-right: @nav-right-padding;
+    }
+
+    // 搜索栏样式
+    > .search {
+        margin-top: (@navbar-height - @navbar-aside-height - @search-height) / 2;
+        margin-right: @nav-right-padding;
+        border: @search-border;
+        box-sizing: content-box;
+        height: @search-height;
+        float: right;
+        background: @search-bg;
+        
+
+        > input {
+            padding: 0;
+            border: none;
+            background: none;
+            height: @search-height;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        > [type=text] {
+            font-size: 13px;
+            color: @font-color;
+            line-height: @search-height;
+            width: @search-input-width;
+            padding-left: 6px;
+            .set-placeholder(#ddd);
+        }
+
+        > [type=submit] {
+            color: transparent;
+            width: @search-button-width;
+            background: @search-icon no-repeat center center;
+            background-size: @search-button-width / 1.85;
+            cursor: pointer;
+        }
+    }
+}
+
+
+// 小屏
+@media all and (max-width: 1330px) {
+    .navbar-main {
+        position: absolute;
+        top: @navbar-aside-height;
+        width: 100%;
+
+        &:after {
+            .response-width;
+            content: "";
+            display: block;
+            list-style: none;
+            height: @navbar-height;
+            background: @navbar-bg;
+        }
+    }
+
+    .navbar-aside {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: @navbar-aside-height;
+
+        > .aside-nav-wrap {
+            padding-right: @search-input-width +  @search-button-width + @search-button-width * 1.5;
+        }
+
+        > .search {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin-top: floor((@navbar-aside-height - @search-height - 2) / 2);
+            
+        }
+    }
+}
+
+@keyframes menu-rotate-animation {
+    @point: percentage(@navbar-item-transition-time / (@navbar-item-menu-transition-time + @navbar-item-transition-time));
+
+    0% {
+        opacity: 0;
+        transform: rotate3d(1,0,0,90deg);
+    }
+    
+    @{point} {
+        opacity: 0;
+        transform: rotate3d(1,0,0,90deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+
+}

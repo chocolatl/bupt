@@ -1,0 +1,50 @@
+<main class="art-content">
+    <img src="images/content-bg.gif" class="title-bg">
+    <h1 class="title"><%- routes[0].title %></h1>
+        
+    <div class="before">
+        <div class="decoration-line"></div>
+        <div class="bread-crumbs-wrap">
+            <div class="decoration-line"></div>
+            <ul class="bread-crumbs">
+                <li><a href="index.html">首页</a></li>
+            <% var nowPath = '' %>
+            <% for(var route of routes) { %>
+                <li><a href=<%- '"' + subRelativePath + '/' + nowPath + getNavPath(route) + '"' %>><%- route.title %></a></li>
+                <% nowPath += route.route + '/' %>
+            <% } %>
+            </ul>
+        </div>
+    </div>
+    <div class="body-wrap">
+        <div class="body">
+            <ul class="art-navbar">
+            <% for(var nav of routes[0].subpages) { %>
+                <li <%- nav.route === routes[1].route ? 'class="active"' : '' %>>
+                    <a href=<%- '"' + subRelativePath + '/' + routes[0].route + '/' + getNavPath(nav) + '"' %>><%- nav.title %></a>
+                    <% if(nav.subpages) { %>
+                        <ul class="sub-nav">
+                        <% for(var subnav of nav.subpages) { %>
+                            <li><a href=<%- '"' + subRelativePath + '/' + routes[0].route + '/' + nav.route + '/' + getNavPath(subnav) + '"' %>><%- subnav.title %></a></li>
+                        <% } %>
+                        </ul>
+                    <% } %>
+                </li>
+            <% } %>
+            </ul>
+
+            <article class="article">
+                <% var nowPage = routes[routes.length - 1] %>
+                <h1><%- nowPage.title %></h1>
+                <% if(nowPage.temp_path) { %>
+                <%- include('../../' + nowPage.temp_path) %>
+                <% } else { %>
+                <h2>模板未配置</h2>
+                <p>请在 views/data/subpages.json 中指定当前页面的模板路径。当前页面配置：</p>
+                <p><%= JSON.stringify(nowPage) %></p>
+                <% } %>
+            </article>
+
+        </div>
+    </div>
+</main>

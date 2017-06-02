@@ -1,0 +1,89 @@
+{
+    "blocks": [
+        {
+            "title": "北邮要闻",
+            "url": "#",
+            "more": true
+        },{
+            "title": "人才培养",
+            "url": "#",
+            "more": false
+        },{
+            "title": "招生就业",
+            "url": "#",
+            "more": false
+        },{
+            "title": "科学研究",
+            "url": "#",
+            "more": false,
+            "nav": [
+                {
+                    "title": "科研基地",
+                    "url": "#"
+                },{
+                    "title": "科研成果",
+                    "url": "#"
+                },{
+                    "title": "科研项目",
+                    "url": "#"
+                }
+            ]
+        },{
+            "title": "专题专栏",
+            "url": "#",
+            "more": false,
+            "nav": [
+                {
+                    "title": "中央财政科研",
+                    "url": "#"
+                }
+            ]
+        },{
+            "title": "合作交流",
+            "url": "#",
+            "more": false,
+            "nav": [
+                {
+                    "title": "国际交流",
+                    "url": "#"
+                },{
+                    "title": "来华事务",
+                    "url": "#"
+                },{
+                    "title": "港澳台事务",
+                    "url": "#"
+                },{
+                    "title": "因公外事",
+                    "url": "#"
+                }
+            ]
+        },{
+            "title": "人才招聘",
+            "url": "#",
+            "more": true
+        },{
+            "title": "信息公告",
+            "url": "#",
+            "more": false,
+            "nav": [
+                {
+                    "title": "招标公告",
+                    "url": "#"
+                },{
+                    "title": "人才招聘",
+                    "url": "#"
+                },{
+                    "title": "党务公开",
+                    "url": "#"
+                },{
+                    "title": "信息公开",
+                    "url": "#"
+                }
+            ]
+        },{
+            "title": "公共服务",
+            "url": "#",
+            "more": true
+        }
+    ]
+}

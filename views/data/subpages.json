@@ -1,0 +1,217 @@
+{
+    "subpages": [
+        {
+            "route": "bygk",
+            "title": "北邮概况",
+            "subpages": [
+                {
+                    "route": "zjby",
+                    "title": "走进北邮",
+                    "subpages": [
+                        {
+                            "route": "xxjj",
+                            "title": "学校简介",
+                            "temp_path": "views/articles/学校简介.ejs"
+                        },{
+                            "route": "bywh",
+                            "title": "北邮文化",
+                            "temp_path": ""
+                        },{
+                            "route": "msdj",
+                            "title": "名师大家",
+                            "temp_path": ""
+                        },{
+                            "route": "xxfg",
+                            "title": "校园风光",
+                            "temp_path": ""
+                        },{
+                            "route": "xydt",
+                            "title": "校园地图",
+                            "temp_path": ""
+                        },{
+                            "route": "shxq",
+                            "title": "沙河校区",
+                            "temp_path": ""
+                        }
+                    ]
+                },{
+                    "route": "ldjg",
+                    "title": "领导机构",
+                    "temp_path": ""
+                },{
+                    "route": "xzyj",
+                    "title": "校长演讲",
+                    "temp_path": ""
+                },{
+                    "route": "lsyg",
+                    "title": "历史沿革",
+                    "temp_path": ""
+                },{
+                    "route": "yyzs",
+                    "title": "邮苑之声",
+                    "temp_path": ""
+                }
+            ]
+        },{
+            "route": "xzby",
+            "title": "学在北邮",
+            "subpages": [
+                {
+                    "route": "bkyrx",
+                    "title": "报考与入学",
+                    "subpages": [
+                        {
+                            "route": "bkzs",
+                            "title": "本科招生",
+                            "temp_path": ""
+                        },{
+                            "route": "sszs",
+                            "title": "硕士招生",
+                            "temp_path": ""
+                        }
+                    ]
+                },{
+                    "route": "bksjy",
+                    "title": "本科生教育",
+                    "subpages": [
+                        {
+                            "route": "zyjj",
+                            "title": "专业简介",
+                            "temp_path": ""
+                        },{
+                            "route": "tszy",
+                            "title": "特色专业",
+                            "temp_path": ""
+                        },{
+                            "route": "jpkc",
+                            "title": "精品课程",
+                            "temp_path": ""
+                        },{
+                            "route": "jxtd",
+                            "title": "教学团队",
+                            "temp_path": ""
+                        },{
+                            "route": "jycg",
+                            "title": "教育成果",
+                            "temp_path": ""
+                        },{
+                            "route": "syjx",
+                            "title": "实验教学",
+                            "temp_path": ""
+                        }
+                    ]
+                },{
+                    "route": "yjsjy",
+                    "title": "研究生教育",
+                    "subpages": [
+                        {
+                            "route": "xyxw",
+                            "title": "专业学位",
+                            "temp_path": ""
+                        },{
+                            "route": "zdxk",
+                            "title": "重点学科",
+                            "temp_path": ""
+                        },{
+                            "route": "xwsq",
+                            "title": "学位授权",
+                            "temp_path": ""
+                        },{
+                            "route": "dsdw",
+                            "title": "导师队伍",
+                            "temp_path": ""
+                        },{
+                            "route": "sszs",
+                            "title": "硕士招生",
+                            "temp_path": ""
+                        },{
+                            "route": "bszs",
+                            "title": "博士招生",
+                            "temp_path": ""
+                        }
+                    ]
+                },{
+                    "route": "jxjy",
+                    "title": "继续教育",
+                    "temp_path": ""
+                },{
+                    "route": "zwhzbx",
+                    "title": "中外合作办学",
+                    "temp_path": ""
+                },{
+                    "route": "hylxs",
+                    "title": "汉语留学生",
+                    "temp_path": ""
+                },{
+                    "route": "jyyfx",
+                    "title": "就业与复习",
+                    "temp_path": ""
+                }
+            ]
+        },{
+            "route": "yxjg",
+            "title": "院系机构",
+            "subpages": [
+                {
+                    "route": "jxkydw",
+                    "title": "教学科研单位",
+                    "temp_path": ""
+                },{
+                    "route": "dwzz",
+                    "title": "党委组织",
+                    "temp_path": ""
+                },{
+                    "route": "xzdw",
+                    "title": "行政单位",
+                    "temp_path": ""
+                },{
+                    "route": "jfdw",
+                    "title": "教辅单位",
+                    "temp_path": ""
+                },{
+                    "route": "qt",
+                    "title": "其他",
+                    "temp_path": ""
+                }
+            ]
+        },{
+            "route": "kyxs",
+            "title": "科研学术",
+            "subpages": [
+                {
+                    "route": "kyxm",
+                    "title": "科研项目",
+                    "temp_path": ""
+                },{
+                    "route": "rctd",
+                    "title": "人才团队",
+                    "temp_path": ""
+                },{
+                    "route": "kycg",
+                    "title": "科研成果",
+                    "temp_path": ""
+                },{
+                    "route": "kyjd",
+                    "title": "科研基地",
+                    "temp_path": ""
+                },{
+                    "route": "lhsys",
+                    "title": "联合实验室",
+                    "temp_path": ""
+                },{
+                    "route": "jszy",
+                    "title": "技术转移",
+                    "temp_path": ""
+                },{
+                    "route": "xshd",
+                    "title": "学术活动",
+                    "temp_path": ""
+                },{
+                    "route": "byxb",
+                    "title": "北邮学报",
+                    "temp_path": ""
+                }
+            ]
+        }
+    ]
+}

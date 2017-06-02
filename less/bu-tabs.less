@@ -1,0 +1,124 @@
+// tab基础宽高
+@grid-width: 103px;
+@grid-height: @grid-width;
+
+// 一侧的tab数量
+@row-half-num: 2;  //每行两个
+@col-half-num: 2;  //每列两个
+
+// 显示的tab宽度，基于基础宽高的倍数
+@content-width-default: 4 * @grid-width;
+@content-width-large: 5 * @grid-width;
+
+@content-height-default: @col-half-num * @grid-height;
+
+//整体宽高
+@tabs-width-default: @content-width-default + @grid-width * @row-half-num * 2;
+@tabs-width-large: @content-width-large + @grid-width * @row-half-num * 2;
+@tabs-height-default: @col-half-num * @grid-height;
+
+@content-bg: rgba(255, 255, 255, .8);
+@def-bg: rgba(0, 161, 241, .8);
+@def-hover-bg: rgba(0, 145, 231, .75);
+@def-font-color: white;
+@def-font-size: 16px;
+
+// content的左右margin
+@content-interval: 8px;
+
+@transition-time: .4s;
+
+.bu-tabs, 
+.bu-tabs * {
+    box-sizing: border-box;
+}
+
+.bu-tabs {
+    width: @tabs-width-default;
+    height: @tabs-height-default;
+    position: absolute;
+    left: 50%;
+    margin-left: -@tabs-width-default / 2;
+    bottom: 115px;
+    z-index: 1300;
+    @media all and (min-width: 1330px) {
+        width: @tabs-width-large;
+        margin-left: -@tabs-width-large / 2;
+    }
+    @media all and (min-height: 660px) {
+        bottom: 165px;
+    }
+}
+
+.bu-tabs > .tab {
+    position: absolute;
+    overflow: hidden;
+    transition: all @transition-time linear;
+}
+
+.bu-tabs > .tab:not(.show) {
+    width: @grid-width;
+    height: @grid-height;
+
+    > .def {
+        display: block;
+
+        font-size: @def-font-size;
+        width: @grid-width;
+        height: @grid-height;
+        color: @def-font-color;
+        &:hover {
+            background-color: @def-hover-bg;
+        }
+        background: @def-bg;
+        background-clip: padding-box;
+        border-bottom: 1px solid transparent;
+        border-left: 1px solid transparent;
+        
+        padding: (floor(@grid-height / 2) - @def-font-size) (floor(@grid-width / 2) - @def-font-size);
+        cursor: pointer;
+    }
+
+    > .block {
+        display: none;
+    }
+}
+
+.bu-tabs > .tab.show {
+    width: @content-width-default - @content-interval * 2;
+    @media all and (min-width: 1330px) {
+        width: @content-width-large - @content-interval * 2;
+    }
+    height: @content-height-default;
+    margin: 0 8px;
+
+    > .def {
+        display: none;
+    }
+
+    > .block {
+        display: block;
+        height: inherit;
+        overflow: hidden;
+        padding: 0 14px;
+        background: @content-bg;
+        border-top: 3px solid @def-bg;
+    
+        > * {
+            animation: fadeIn @transition-time * 2 linear;
+        }
+    }
+    
+}
+
+@keyframes fadeIn{
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

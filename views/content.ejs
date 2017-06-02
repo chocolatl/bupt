@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 使页面中的相对路径起始位置变为根目录 -->
+    <base href=<%- '"' + rootUri + '"' %>>
+    <!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+    <title>北京邮电大学</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="javascripts/script.js"></script>
+</head>
+<body>
+    <%- include('./partial/nav', {routes: routes, subpages: subpages.subpages, getNavPath: helper.getNavPath,  subRelativePath: subRelativePath}) %>
+
+    <%- include('./partial/art-content', {routes: routes, getNavPath: helper.getNavPath, subRelativePath: subRelativePath}) %>
+
+    <%- include('./partial/footer', {footerFixed: footerFixed}) %>
+
+</body>
+</html>

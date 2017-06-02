@@ -1,0 +1,22 @@
+<main class="bu-tabs">
+
+<% blocks.forEach(function(block, index) { %>
+    <%- index == 0 ? '<div class="tab show">' : '<div class="tab">' %>
+        <span class="def"><%= block.title %></span>
+        <div class="block">
+            <div class="head">
+                <h3><a href=<%- '"' + block.url + '"' %>><%= block.title %></a></h3>
+                <% if(block.more) { %><a href=<%- '"' + block.url + '"' %> class="more">更多</a><% } %>
+                <% block.nav || (block.nav = []) %>
+                <% for(let link of block.nav) { %>
+                <a href=<%- '"' + link.url + '"' %> class="link"><%= link.title %></a>
+                <% } %>
+            </div>
+            <div class="content">
+
+            </div>
+        </div>
+    </div>
+<% }) %>
+
+</main>

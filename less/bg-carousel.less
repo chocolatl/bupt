@@ -1,0 +1,50 @@
+@arrows-icon: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAeCAYAAABwmH1PAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAK+SURBVHja1Jmvc+JAFMc/ZJghLq5xOFCH67m6OHB1lefuv6q7unPg4loFDlTPxQWHSxUVvMykuWz27WZzM/dmMjAh5O13d7/f92Mn1+sVpcXAHTDv+O0CnIGScSwV30nHb4X4rjQvmiqeWQLf5NNmF+AIHLQDsEzwPbAyAG3bu/gt+h6a9KxwCmSGFbVZJc5fPcE+CNjY478FkJt2mwnwdwE71Ergt6y8xhLgUSZ7qOXAXgN4I9solFXAi4LfKfDkuaomOwLb5o2o9UAWGGzNxScLD5MRwCJYMhPgpWzlMSyWrWqyxxHANum5bAOOgbUHP11Dy4NBoNKRfa/rCa0BuypiLpertf0kcs9HkHLHHXZfA44dnW671M/VcYNjvlt53xYkzWRHwELptAKeRfmGCknXd18VflYmOTGwqAFrOPNCmNQxEc6mygwq5NgWkUIwQoKt7U6uUKYdYzq1zPKxhydn4JdCmTPDKvcJkm3g5x7K9SVOydQiCrmF08UIcbMc+N6tjK0zp4h6qp43/l97M+XvUY+w/AyUxP9rS2XsiWs9XOfAO6k1tfxs2sxjwBnwoUg8SkPtvu4Ls1Phy9ySA2874u/Ms1bGwlHNrpoZ4vvG5jdShptNoPq4qbLngO/LFGABygg4OVQdmwBVzbuoaGWgimuqunGo8k6RYxhYBahbD4bvvnX2yoFGZa3SLr2nFPjhqeBFa3ILz5jrM4bXZlgqHLdX4snpXHlPw9nEkUZFOw7v0Dfb8ARbGjKrfES/F8H2V+JRceswViM4PVpq6H2AstOU/n7B1NW1TCX2JoGc7h1WMCNcX+0iYL/sKlNfuu5xLQfO7s4j9FizJSVnd127dWI5W5pza7LNHYEeGHbcUreCXHtthaixUfknysO0lNv5Uor5MK0E/sgVSgdi6cgsejokhfg+abLGzwEA5nq5vbenPB4AAAAASUVORK5CYII=);
+
+
+.bg-carousel {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    > .carousel {
+        height: 100%;
+        width: 100%;
+
+        > .item {
+            // background-repeat: no-repeat;
+            // background-size: cover;
+            // height: 100%;
+            // width: 100%;
+        }
+    }
+
+    > button {
+        outline: none;
+        padding: 0;
+        border: none;
+        width: 30px;
+        height: 30px;
+        text-indent: -999px;
+        border-radius: 100%;
+        overflow: hidden;
+        background: @arrows-icon rgba(220,220,220,.1) no-repeat;
+        position: absolute;
+        z-index: 1300;
+        cursor: pointer;
+    }
+
+    > button.prev {
+        background-position-x: left;
+        top: 50%;
+        left: 1.5%;
+    }
+
+    > button.next {
+        background-position-x: right;
+        top: 50%;
+        right: 1.5%;
+    }
+
+}

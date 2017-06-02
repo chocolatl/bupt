@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+    <title>北京邮电大学</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="javascripts/script.js"></script>
+</head>
+<body>
+
+    <%- include('./partial/nav', {subpages: subpages.subpages, getNavPath: helper.getNavPath, subRelativePath: subRelativePath}) %>
+
+    <%- include('./partial/bu-tabs', {blocks: buTabs.blocks}) %>
+
+    <%- include('./partial/footer', {footerFixed: footerFixed}) %>
+
+    <%- include('./partial/bg-carousel') %>
+
+</body>
+</html>

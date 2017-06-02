@@ -1,0 +1,237 @@
+@background-img: url(/img/content-bg.gif);
+@container-width: 960px;
+@interval-width: 35px;
+@content-width: 715px;
+@aside-width: @container-width - @content-width - @interval-width;
+@bread-crumbs-height: 38px;
+@crumbs-link-color: #acacac;
+@crumbs-link-hover-color: #ffc900;
+@decoration-line-style: 2px solid #00a1f1;
+@navbar-item-height: 50px;
+@navbar-block-size: 58px;
+
+.reset-list {
+    margin: 0;
+    padding: 0;
+
+    > li {
+        list-style: none;
+    }
+}
+
+body {
+    overflow: auto !important;
+}
+
+.art-container {
+    width: @container-width;
+    margin: 0 auto;
+}
+
+.art-content {
+
+    * {
+        box-sizing: border-box;
+    }
+
+    min-height: 100%;
+    // background: @background-img no-repeat;
+    // background-size: 100%;
+
+    > .title-bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+    }
+
+    // 防止margin传递
+    &:before {
+        content: "";
+        display: table-cell;
+        height: 0;
+    }
+
+    // 页面标题
+    > .title {
+        .art-container;
+        margin-top: 260px;
+        margin-bottom: 10px;
+        padding: 0;
+        font-size: 30px;
+        color: white;
+        font-weight: normal;
+        text-shadow: 1px 2px 2px #222;
+        letter-spacing: 2px;
+
+    }
+
+    // 蓝条和面包屑导航
+    > .before {
+        height: @bread-crumbs-height;
+        background: white;
+        position: relative;
+
+        > .decoration-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: @bread-crumbs-height;
+            width: @container-width;
+            border-bottom: @decoration-line-style;
+        }
+
+        > .bread-crumbs-wrap {
+            .art-container;
+            position: relative;
+            z-index: 1;
+            background: white;
+            height: @bread-crumbs-height;
+
+            > .decoration-line {
+                float: left;
+                height: @bread-crumbs-height;
+                width: @aside-width;
+                border-bottom: @decoration-line-style;
+            }
+
+            >  .bread-crumbs {
+                .reset-list;
+                float: right;
+                width: @content-width;
+                height: @bread-crumbs-height;
+
+                > li {
+                    line-height: @bread-crumbs-height;
+                    float: left;
+
+                    > a, > a:link, > a:visited {
+                        color: @crumbs-link-color;
+                        text-decoration: none;
+                        font-size: 13px;
+                    }
+
+                    > a:hover {
+                        color: @crumbs-link-hover-color;
+                    }
+                }
+
+                > li:not(:last-child):after {
+                    content: "·";
+                    padding: 0 8px;
+                    color: @crumbs-link-color;
+                }
+            }
+        }
+    }
+
+    > .body-wrap {
+        background: white;
+        
+        // 页面最小高度
+        min-height: 604px;
+    }
+}
+
+.art-content > .body-wrap > .body {
+    .art-container;
+
+    // 左侧导航栏
+    > .art-navbar {
+        .reset-list;
+        float: left;
+        width: @aside-width;
+
+        // .fixed
+        &.fixed {
+            position: fixed;
+            top: 10px;
+            border-top: @decoration-line-style;
+        }
+
+        > li {
+            border-bottom: 1px solid lightblue;
+
+            > a, > a:link, > a:valid {
+                height: @navbar-item-height;
+                line-height: @navbar-item-height;
+                text-decoration: none;
+                color: #3f3f3f;
+                display: block;
+                height: @navbar-item-height;
+                padding-left: 8px;
+            }
+        }
+
+        // 二级菜单默认隐藏
+        > li > .sub-nav {
+            display: none;
+        }
+
+        // 拥有.active的li显示二级菜单
+        > li.active > .sub-nav {
+            .reset-list;
+            display: block;
+            border-top: 1px solid orange;
+            overflow: hidden;
+            padding: 13px 0 12px;
+
+            > li {
+                float: left;
+                margin-right: 15px;
+                margin-bottom: 10px;
+                width: @navbar-block-size;
+                height: @navbar-block-size;
+                overflow: hidden;
+                background: white;
+                border: 1px solid #00a1f1;
+
+                // .active
+                &:hover, &.active {
+                    border:  1px solid #fff6d0;;
+                    background: #fff6d0;
+                }
+
+                &:nth-child(3n) {
+                    margin-right: 0;
+                }
+
+                > a, a:link, a:visited {
+                    color: #00a1f1;
+                    text-decoration: none;
+                    display: block;
+                    font-size: 14px;
+                    line-height: 19px;
+                    letter-spacing: 1px;
+                    padding: 10px 14px;
+                    height: @navbar-block-size;
+                    width: @navbar-block-size;
+                }
+            }
+        }
+    }
+
+    // 右侧文章正文
+    > .article {
+        float: right;
+        width: @content-width;
+
+        > h1 {
+            margin: 0;
+            padding: 0;
+            font-weight: normal;
+            font-size: 28px;
+            line-height: 52px;
+            color: #00a1f1;
+            border-bottom: 1px solid #b6d9e8;
+        }
+
+        > p {
+            color: #444;
+            font-size: 14px;
+            line-height: 22.5px;
+            text-indent: 2em;
+        }
+    }
+}

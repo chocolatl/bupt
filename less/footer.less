@@ -1,0 +1,29 @@
+footer {
+    height: 60px;
+    width: 100%;
+    font-size: 13px;
+    background: rgba(45, 45, 45, .95);
+    color: white;
+    overflow: hidden;
+    &.fixed {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        z-index: 1300;
+    }
+    > p {
+        word-spacing: 4px;
+        margin: 10px 0 0 0;
+        text-align: center;
+    }
+
+    > .link-group {
+        word-spacing: 21px;
+    }
+
+    a:link,
+    a:visited {
+        color: white;
+        text-decoration: none;
+    }
+}

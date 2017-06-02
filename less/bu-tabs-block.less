@@ -1,0 +1,86 @@
+@head-height: 36px;
+@head-title-size: 18px;
+@link-color: #00a1f1;
+
+.bu-tabs > .tab.show > .block {
+    * {
+        //  (默认box-sizing: border-box;
+    }
+
+    > .head {
+        height: @head-height;
+        padding-top: (@head-height -  @head-title-size) / 2;
+        > h3 {            
+            margin: 0;
+            font-size: @head-title-size;
+            height: @head-title-size;
+            display: inline-block;
+            > a {
+                text-decoration: none;
+                &:hover {
+                    color: @link-color;
+                }
+                color: #026493;
+            }
+        }
+
+        > .link {
+            display: inline-block;
+            font-size: 14px;
+            color: @link-color;
+            text-decoration: none;
+            padding-left: 6px;
+        }
+
+        > .more {
+            font-size: 12px;
+            padding: 2px 7px;
+            margin-top: 2px;
+            background: #ffc900;
+            color: white;
+            font-weight: normal;
+            text-decoration: none;
+            float: right;
+            &:hover {
+                color: #00a1f1;
+            }
+        }
+    }
+    
+    > .content {
+        .art-list {
+            margin: 0;
+            padding: 0;
+
+            > li {
+                list-style: none;
+                border-left: 1.5px solid @link-color;
+                margin-top: 11px;
+                > a {
+                    display: block;
+                    font-size: 13px;
+                    height: 14px;
+                    line-height: 14px;
+                    text-decoration: none;
+                    color: #333;
+                    padding: 0 9px 0 9px;
+                    &:hover {
+                        color: @link-color;
+                    }
+
+                    > .title {
+                        display: inline-block;
+                        width: 80%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                    > .date {
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+
+}

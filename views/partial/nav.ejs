@@ -1,0 +1,32 @@
+<nav class="navbar">
+    <ul class="navbar-main">
+        <li class="logo"><a href="index.html"><img src="images/logo.gif"></a></li>
+        <% for (let i of subpages) { %>
+        <li <%- (typeof routes !== 'undefined') && (i.route === routes[0].route) ? 'class="active"' : '' %>>
+            <div class="def"><a href=<%- '"' + subRelativePath + '/' + getNavPath(i) + '"' %>><%= i.title %></a></div>
+            <ul class="menu">
+                <% for(let j of i.subpages) { %>
+                <li><a href=<%- '"' + subRelativePath + '/' + i.route + '/' + getNavPath(j) + '"' %>><%= j.title %></a></li>
+                <% } %>
+            </ul>
+        </li>
+        <% } %>
+    </ul>
+    <div class="navbar-aside">
+        <div class="aside-nav-wrap">
+            <ul>
+                <li><a href="#">考生</a> · <a href="#">在校生</a> · <a href="#">教职工</a></li>
+                <li><a href="#">信息门户</a></li>
+                <li><a href="#">OA系统</a></li>
+                <li><a href="#">书记信箱</a></li>
+                <li><a href="#">校长信箱</a></li>
+                <li><a href="#">信息公开</a></li>
+                <li><a href="#">En</a></li>
+            </ul>
+        </div>
+        <form action="" class="search">
+            <input type="text" placeholder="搜索">
+            <input type="submit">
+        </form>
+    </div>
+</nav>
