@@ -151,9 +151,7 @@ body {
         }
 
         > li {
-            border-bottom: 1px solid lightblue;
-
-            > a, > a:link, > a:valid {
+            > a, > a:link, > a:visited {
                 height: @navbar-item-height;
                 line-height: @navbar-item-height;
                 text-decoration: none;
@@ -161,6 +159,10 @@ body {
                 display: block;
                 height: @navbar-item-height;
                 padding-left: 8px;
+                border-bottom: 1px solid lightblue;
+            }
+            &.active > a {
+                border-bottom: 1px solid orange;
             }
         }
 
@@ -173,7 +175,7 @@ body {
         > li.active > .sub-nav {
             .reset-list;
             display: block;
-            border-top: 1px solid orange;
+            border-bottom: 1px solid lightblue;
             overflow: hidden;
             padding: 13px 0 12px;
 
