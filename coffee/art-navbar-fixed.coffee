@@ -4,5 +4,5 @@ document.addEventListener "DOMContentLoaded", ->
 
     if navbarOffsetTop?
         window.addEventListener "scroll", ->
-            if document.body.scrollTop > navbarOffsetTop then navbar.classList.add "fixed" else navbar.classList.remove "fixed"
+            if (document.body.scrollTop || document.documentElement.scrollTop) > navbarOffsetTop then navbar.classList.add "fixed" else navbar.classList.remove "fixed"
             
