@@ -102,4 +102,4 @@ document.addEventListener "DOMContentLoaded", ->
 
     el = document.querySelector(".bu-tabs")
     
-    new BuTabs(el, conf)
+    new BuTabs(el, conf) if el?
