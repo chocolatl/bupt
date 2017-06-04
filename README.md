@@ -30,3 +30,7 @@ IE10+、Chrome、Firefox
 CSS可以写在 `less/art-content.less` 中
 
 配置完成后重新部署
+
+## 演示地址
+
+<https://chocolatl.github.io/bupt/>
