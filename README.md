@@ -5,7 +5,7 @@
 ## 部署
 
 1. 执行 `npm install` 安装依赖项
-2. 执行 `cake build` , 将会完成以下任务：
+2. 执行 `node_modules\.bin\cake build` , 将会完成以下任务：
     1. 编译Less到 `build/stylesheets`
     2. 编译Coffee到 `build/javascripts`
     3. 复制img到 `build/images`
