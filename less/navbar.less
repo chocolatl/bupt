@@ -1,3 +1,5 @@
+@import (once) "util.less";
+
 @navbar-height: 102px;
 @navbar-menu-height: @navbar-height;
 @navbar-menu-col-item-num: 4;  // 主菜单的二级菜单有左右两列，这里是一列的项目数
@@ -24,14 +26,6 @@
 
 @nav-right-padding: 12px;
 
-.reset-list {
-    margin: 0;
-    padding: 0;
-
-    > li {
-        list-style: none;
-    }
-}
 
 .set-placeholder(@color) {
     &::-webkit-input-placeholder {
