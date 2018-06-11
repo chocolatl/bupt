@@ -1,6 +1,9 @@
 {
   "name": "bupt",
   "version": "0.0.1",
+  "scripts": {
+    "build": "cake build"
+  },
   "description": "",
   "devDependencies": {
     "coffeescript": "^1.12.6",
