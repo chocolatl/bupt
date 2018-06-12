@@ -18,5 +18,11 @@
 
     <%- include('./partial/bg-carousel') %>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var el = document.querySelector(".bu-tabs");
+            new BuTabs(el);
+        });
+    </script>
 </body>
 </html>

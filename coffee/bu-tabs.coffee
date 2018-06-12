@@ -6,7 +6,36 @@ class BuTabs
 
     getBaseTabs: -> @el.querySelectorAll "* > .tab:not(.show)"
 
-    constructor: (@el, @conf) -> 
+    constructor: (@el, conf) -> 
+        # key: min-width
+        defaultConf = {
+            0:
+                posBase: [
+                    {x: 0 * 103, y: 0 * 103}
+                    {x: 1 * 103, y: 0 * 103}
+                    {x: 0 * 103, y: 1 * 103}
+                    {x: 1 * 103, y: 1 * 103}
+                    {x: 6 * 103, y: 0 * 103}
+                    {x: 7 * 103, y: 0 * 103}
+                    {x: 6 * 103, y: 1 * 103}
+                    {x: 7 * 103, y: 1 * 103}
+                ]
+                posShow: x: 2 * 103, y: 0 * 103
+
+            1330:
+                posBase: [
+                    {x: 0 * 103, y: 0 * 103}
+                    {x: 1 * 103, y: 0 * 103}
+                    {x: 0 * 103, y: 1 * 103}
+                    {x: 1 * 103, y: 1 * 103}
+                    {x: 7 * 103, y: 0 * 103}
+                    {x: 8 * 103, y: 0 * 103}
+                    {x: 7 * 103, y: 1 * 103}
+                    {x: 8 * 103, y: 1 * 103}
+                ]
+                posShow: x: 2 * 103, y: 0 * 103
+        }
+        @conf = conf || defaultConf
         @setPosition()
         @bindClickEvent()
         window.addEventListener "resize", => @setPosition()
@@ -70,36 +99,4 @@ class BuTabs
 # class end
 
 
-
-document.addEventListener "DOMContentLoaded", ->
-    # key: min-width
-    conf = 
-        0:
-            posBase: [
-                {x: 0 * 103, y: 0 * 103}
-                {x: 1 * 103, y: 0 * 103}
-                {x: 0 * 103, y: 1 * 103}
-                {x: 1 * 103, y: 1 * 103}
-                {x: 6 * 103, y: 0 * 103}
-                {x: 7 * 103, y: 0 * 103}
-                {x: 6 * 103, y: 1 * 103}
-                {x: 7 * 103, y: 1 * 103}
-            ]
-            posShow: x: 2 * 103, y: 0 * 103
-
-        1330:
-            posBase: [
-                {x: 0 * 103, y: 0 * 103}
-                {x: 1 * 103, y: 0 * 103}
-                {x: 0 * 103, y: 1 * 103}
-                {x: 1 * 103, y: 1 * 103}
-                {x: 7 * 103, y: 0 * 103}
-                {x: 8 * 103, y: 0 * 103}
-                {x: 7 * 103, y: 1 * 103}
-                {x: 8 * 103, y: 1 * 103}
-            ]
-            posShow: x: 2 * 103, y: 0 * 103
-
-    el = document.querySelector(".bu-tabs")
-    
-    new BuTabs(el, conf) if el?
+window.BuTabs = BuTabs  # export
