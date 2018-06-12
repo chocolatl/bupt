@@ -1,50 +1,55 @@
+fs    = require('fs')
+exfs  = require('node-fs-extra')
 spawn = require('child_process').spawn
 
 
-task 'build', 'you guess', ->
+task 'build', 'build task', ->
+
+    isWin = process.platform == 'win32'
+
+    # remove directory
+    exfs.removeSync 'public'
 
     # create directory
-    spawn 'cmd', ['/c' ,'md', 'public\\stylesheets', 'public\\javascripts', 'public\\images']
+    exfs.mkdirsSync dir for dir in ['public/stylesheets', 'public/javascripts', 'public/images']
 
     # coffee
-    coffee = spawn 'node_modules\\.bin\\coffee.cmd', [
-        '-c',
-        '-o', 'public\\javascripts',
-        '-j', 'script.js',
-        'coffee\\shim.coffee', 
-        'coffee\\bu-tabs.coffee', 
-        'coffee\\bu-carousel.coffee', 
+    coffeeFiles = ('coffee/' + name for name in fs.readdirSync 'coffee' when /\.coffee$/.test name)
+    
+    coffeeCmd =  if isWin then 'coffee.cmd' else 'coffee'
+    coffee = spawn coffeeCmd, [
+        '--output', 'public/javascripts', 
+        '--join', 'script.js',
+        '--compile', coffeeFiles...
     ]
     
     coffee.on 'error', (err) -> 
-        console.warn err.toString()
+        console.error err.toString()
 
     coffee.on 'exit', (code) ->
-        console.log "completed coffee. code(#{code}) \n"
+        console.log "coffee exit code: #{code}\n"
 
     coffee.stdout.on 'data', (data) ->
         console.log data.toString()
 
     coffee.stderr.on 'data', (data) ->
-        console.warn data.toString()
+        console.error data.toString()
 
     # less
-    less = spawn 'node_modules\\.bin\\lessc.cmd', ['less\\style.less', 'public\\stylesheets\\style.css']
+    lessCmd = if isWin then 'lessc.cmd' else 'less'
+    less = spawn lessCmd, ['less/style.less', 'public/stylesheets/style.css']
 
     less.on 'error', (err) -> 
-        console.warn err.toString()
+        console.error err.toString()
 
     less.on 'exit', (code) ->
-        console.log "completed less. code(#{code}) \n"
+        console.log "less exit code: #{code}\n"
 
     less.stdout.on 'data', (data) ->
         console.log data.toString()
 
     less.stderr.on 'data', (data) ->
-        console.warn data.toString()
+        console.error data.toString()
 
-    # copy img from './img' to './public/images'
-    imgcp = spawn 'cmd', ['/c', 'copy', '/Y', 'img\\*', 'public\\images']
-    
-    imgcp.on 'exit', (code) ->
-        console.log "images have been copied to './public/images'. code(#{code}) \n"
+    # copy img from 'img' to 'public/images'
+    exfs.copySync('img/' + name, 'public/images/' + name) for name in fs.readdirSync 'img'

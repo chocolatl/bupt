@@ -13,8 +13,6 @@
 
 `public`目录为站点根目录
 
-注：仅支持Windows
-
 ## 兼容性
 
 IE10+、Chrome、Firefox
