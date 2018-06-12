@@ -48,3 +48,21 @@
         </div>
     </div>
 </main>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var navbar = document.querySelector('.art-navbar');
+        var navbarOffsetTop = navbar.offsetTop;
+
+        window.addEventListener('scroll', function() {
+            var scrollTop = 
+                document.body.scrollTop || 
+                document.documentElement.scrollTop;
+
+            scrollTop > navbarOffsetTop ? 
+                navbar.classList.add('fixed') : 
+                navbar.classList.remove('fixed');
+        });
+    });
+</script>

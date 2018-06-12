@@ -14,7 +14,7 @@ task 'build', 'you guess', ->
         'coffee\\shim.coffee', 
         'coffee\\bu-tabs.coffee', 
         'coffee\\bu-carousel.coffee', 
-        'coffee\\art-navbar-fixed.coffee']
+    ]
     
     coffee.on 'error', (err) -> 
         console.warn err.toString()
