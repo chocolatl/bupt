@@ -135,18 +135,4 @@ class Carousel
 # class end
 
 
-
-document.addEventListener "DOMContentLoaded", ->
-    el = document.querySelector(".bg-carousel > .carousel")
-    return unless el?
-
-    control = new Carousel el,
-        autoPlay: true
-        zIndex: 900
-        autoPlayInterval: 8000
-        initDelay: 4000
-
-    prev = document.querySelector(".bg-carousel > .prev")
-    next = document.querySelector(".bg-carousel > .next")
-    prev && (prev.onclick = control.playPrev)
-    next && (next.onclick = control.playNext)
+window.Carousel = Carousel  # export

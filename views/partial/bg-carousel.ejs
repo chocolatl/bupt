@@ -22,3 +22,21 @@
     <button class="prev">Prev</button>
     <button class="next">Next</button>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var el   = document.querySelector('.bg-carousel > .carousel');
+        var prev = document.querySelector('.bg-carousel > .prev');
+        var next = document.querySelector('.bg-carousel > .next');
+
+        control = new Carousel(el, {
+            autoPlay: true,
+            zIndex: 900,
+            autoPlayInterval: 8000,
+            initDelay: 4000
+        });
+
+        prev && (prev.onclick = control.playPrev);
+        next && (next.onclick = control.playNext);
+    });
+</script>
